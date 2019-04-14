@@ -1,0 +1,4 @@
+INFO   : [App.OnStartup][App.xaml.cs:19.13] **************** Pharmacy 1.0.0.0 Started ****************
+INFO   : [MainWindow.DataBaseConnection_OnConnectingEnd][MainWindow.DataBaseEvents.cs:30.13] Connected to Server: ASUS-PC\SQLEXPRESS, Database: Pharmacy
+ERROR  : [BaseTable`1.DeleteRecord][BaseTable.cs:275.17] Exception: The DELETE statement conflicted with the REFERENCE constraint "FK_DRUGS_INFO_DEALER_ID". The conflict occurred in database "Pharmacy", table "dbo.DRUGS_INFO", column 'DEALER_ID'.
+The statement has been terminated., HRESULT: -2146232060

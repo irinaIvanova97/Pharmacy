@@ -1,0 +1,38 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Pharmacy.Controls"
+             x:Class="Pharmacy.Controls.CloseButton"
+             mc:Ignorable="d" 
+             d:DesignHeight="16" d:DesignWidth="16" MinWidth="16" MinHeight="16" MaxWidth="16" MaxHeight="16">
+
+    <Button x:Name="button" Margin="0,0,-233,-221" Click="OnClick" BorderThickness="0" Padding="0" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" MouseDown="OnMouseDown" MouseUp="OnMouseUp" MouseLeftButtonDown="OnMouseDown" MouseLeftButtonUp="OnMouseUp">
+        <Button.Style>
+            <Style TargetType="Button">
+                <Setter Property="OverridesDefaultStyle" Value="True" />
+                <Setter Property="Cursor" Value="Hand" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Name="border" BorderThickness="0" BorderBrush="Black" Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Button.Style>
+        <Button.Background>
+            <ImageBrush ImageSource="/Pharmacy;component/Resources/close_button_normal.png"/>
+        </Button.Background>
+
+    </Button>
+
+
+</UserControl>

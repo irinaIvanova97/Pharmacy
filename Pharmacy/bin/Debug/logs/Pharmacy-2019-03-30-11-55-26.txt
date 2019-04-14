@@ -1,0 +1,2 @@
+INFO   : [App.OnStartup][App.xaml.cs:19.13] **************** Pharmacy 1.0.0.0 Started ****************
+INFO   : [DataBaseConnection.CloseConnection][DataBaseConnection.cs:95.13] Connection closed.

@@ -1,0 +1,2 @@
+INFO   : [App.OnStartup][App.xaml.cs:19.13] **************** Pharmacy 1.0.0.0 Started ****************
+ERROR  : [BaseTable`1.SelectAllRecords][BaseTable.cs:110.17] Exception: ExecuteReader: Connection property has not been initialized., HRESULT: -2146233079

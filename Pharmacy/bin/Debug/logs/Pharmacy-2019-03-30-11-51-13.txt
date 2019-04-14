@@ -1,0 +1,11 @@
+INFO   : [App.OnStartup][App.xaml.cs:19.13] **************** Pharmacy 1.0.0.0 Started ****************
+INFO   : [DataBaseConnection.CloseConnection][DataBaseConnection.cs:95.13] Connection closed.
+ERROR  : [<OpenConnection>d__17.MoveNext][DataBaseConnection.cs:63.13] Exception: A task was canceled., HRESULT: -2146233029
+INFO   : [MainWindow.DataBaseConnection_OnConnectingEnd][MainWindow.DataBaseEvents.cs:30.13] Connected to Server: ASUS-PC\SQLEXPRESS, Database: Pharmacy
+INFO   : [MainWindow.DataBaseConnection_OnConnectingEnd][MainWindow.DataBaseEvents.cs:30.13] Connected to Server: ASUS-PC\SQLEXPRESS, Database: Pharmacy
+INFO   : [DataBaseConnection.CloseConnection][DataBaseConnection.cs:95.13] Connection closed.
+INFO   : [MainWindow.DataBaseConnection_OnConnectingEnd][MainWindow.DataBaseEvents.cs:30.13] Connected to Server: ASUS-PC\SQLEXPRESS, Database: Pharmacy
+INFO   : [MainWindow.DataBaseConnection_OnConnectingEnd][MainWindow.DataBaseEvents.cs:30.13] Connected to Server: ASUS-PC\SQLEXPRESS, Database: Pharmacy
+ERROR  : [BaseTable`1.SelectAllRecords][BaseTable.cs:113.21] Exception: Specified cast is not valid., HRESULT: -2147467262
+ERROR  : [BaseTable`1.SelectAllRecords][BaseTable.cs:113.21] Exception: Specified cast is not valid., HRESULT: -2147467262
+INFO   : [DataBaseConnection.CloseConnection][DataBaseConnection.cs:95.13] Connection closed.

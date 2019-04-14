@@ -1,0 +1,10 @@
+INFO   : [App.OnStartup][App.xaml.cs:19.13] **************** Pharmacy 1.0.0.0 Started ****************
+INFO   : [MainWindow.DataBaseConnection_OnConnectingEnd][MainWindow.DataBaseEvents.cs:30.13] Connected to Server: ASUS-PC\SQLEXPRESS, Database: Pharmacy
+ERROR  : [BaseTable`1.SelectAllRecords][BaseTable.cs:110.17] Exception: ExecuteReader requires an open and available Connection. The connection's current state is connecting., HRESULT: -2146233079
+INFO   : [DataBaseConnection.CloseConnection][DataBaseConnection.cs:96.13] Connection closed.
+INFO   : [MainWindow.DataBaseConnection_OnConnectingEnd][MainWindow.DataBaseEvents.cs:30.13] Connected to Server: ASUS-PC\SQLEXPRESS, Database: Pharmacy
+ERROR  : [DataBaseConnection.OpenConnection][DataBaseConnection.cs:67.17] Exception: Object reference not set to an instance of an object., HRESULT: -2147467261
+INFO   : [DataBaseConnection.CloseConnection][DataBaseConnection.cs:96.13] Connection closed.
+INFO   : [MainWindow.DataBaseConnection_OnConnectingEnd][MainWindow.DataBaseEvents.cs:30.13] Connected to Server: ASUS-PC\SQLEXPRESS, Database: Pharmacy
+ERROR  : [DataBaseConnection.OpenConnection][DataBaseConnection.cs:67.17] Exception: Object reference not set to an instance of an object., HRESULT: -2147467261
+INFO   : [DataBaseConnection.CloseConnection][DataBaseConnection.cs:96.13] Connection closed.

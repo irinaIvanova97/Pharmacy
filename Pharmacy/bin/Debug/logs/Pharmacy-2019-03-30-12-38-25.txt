@@ -1,0 +1,2 @@
+INFO   : [App.OnStartup][App.xaml.cs:19.13] **************** Pharmacy 1.0.0.0 Started ****************
+ERROR  : [App.OnExit][App.xaml.cs:31.17] Exception: databaseInstance == null, HRESULT: -2146233088
