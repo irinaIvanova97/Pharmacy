@@ -1,0 +1,20 @@
+﻿<Window x:Class="Pharmacy.MainDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pharmacy"
+        mc:Ignorable="d"
+         Title="Pharmacy" Height="570" Width="900" ResizeMode="CanResizeWithGrip" >
+    <Grid>
+        <TabControl x:Name="tabControl" Margin="10,29,10,34">
+            <GroupBox x:Name="ui_groupBoxPharmacies" Header="Аптеки и поръчки" HorizontalAlignment="Left" VerticalAlignment="Top" Height="209" Width="862">
+                <ScrollViewer CanContentScroll="True" UseLayoutRounding="False" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Margin="2,0,452,0">
+                    <Grid Name="ui_gridPharmacies">
+                    </Grid>
+                </ScrollViewer>
+            </GroupBox>
+            <DataGrid x:Name="dataGrid" Height="100" Width="83"/>
+        </TabControl>
+    </Grid>
+</Window>

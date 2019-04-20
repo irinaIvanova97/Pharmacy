@@ -33,6 +33,11 @@ namespace Pharmacy.Dealers
             return drugsData.SelectAll(drugsList, " WHERE ID = " + drugID);
         }
 
+        public bool SelectDrugWhereID(out Drugs.Drugs drug, int drugID)
+        {
+            return drugsData.SelectWhereID(drugID, out drug);
+        }
+
         public bool SelectWhereID(int ID, out DealerInfo dealerInfo)
         {
             Dealers dealer = new Dealers();
@@ -87,7 +92,7 @@ namespace Pharmacy.Dealers
             //Get dealer
             foreach (var drugInfo in dealerInfo.drugsInfoList)
             {
-                if (!drugsInfoData.UpdateWhereID(ID, drugInfo))
+                if (!drugsInfoData.UpdateWhereID(drugInfo.ID, drugInfo))
                 {
                     MessageBoxes.ShowError(MessageBoxes.EditErrorMessage);
                     return false;

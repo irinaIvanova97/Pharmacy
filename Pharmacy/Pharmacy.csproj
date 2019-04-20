@@ -36,6 +36,9 @@
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>drugIcon2.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -96,6 +99,9 @@
     <Compile Include="Drugs\DrugsTable.cs" />
     <Compile Include="Drugs\DrugsView.cs" />
     <Compile Include="Log.cs" />
+    <Compile Include="MainDialog.xaml.cs">
+      <DependentUpon>MainDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.DataBaseEvents.cs" />
     <Compile Include="MainWindow.MenuItemsEvents.cs" />
     <Compile Include="Pharmacies\Pharmacies.cs" />
@@ -137,6 +143,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MainDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -175,6 +185,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
@@ -183,12 +194,23 @@
     </None>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Resource Include="Resources\close_button_hover.png" />
     <Resource Include="Resources\close_button_normal.png" />
     <Resource Include="Resources\close_button_pressed.png" />
     <Resource Include="Resources\license.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\drugPng.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pharmacyLogo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\drugIcon2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="drugIcon2.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

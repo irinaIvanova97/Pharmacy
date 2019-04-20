@@ -11,6 +11,7 @@ namespace Pharmacy
     /// </summary>
     public partial class AboutDialog : BaseDialog
     {
+
         public AboutDialog(DependencyObject parent = null) : base(DialogModes.Preview, parent, true, false)
         {
             InitializeComponent();

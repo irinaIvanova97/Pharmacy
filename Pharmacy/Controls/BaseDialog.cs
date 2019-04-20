@@ -33,8 +33,8 @@ namespace Pharmacy.Controls
  /* this */ Initialized += BaseDialog_Initialized;
  /* this */ Loaded += BaseDialog_Loaded;
 
-          //  Uri iconUri = new Uri("pack://application:,,,/Pharmacy;component/Resources/favicon.ico");
-           // this.Icon = BitmapFrame.Create(iconUri);
+            Uri iconUri = new Uri("pack://application:,,,/Pharmacy;component/Resources/drugPng.png");
+            this.Icon = BitmapFrame.Create(iconUri);
 
             if (parent != null)
                 Owner = /* Window */ GetWindow(parent);

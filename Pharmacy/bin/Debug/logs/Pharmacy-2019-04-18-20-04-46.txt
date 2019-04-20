@@ -1,0 +1,6 @@
+INFO   : [App.OnStartup][App.xaml.cs:19.13] **************** Pharmacy 1.0.0.0 Started ****************
+INFO   : [MainWindow.DataBaseConnection_OnConnectingEnd][MainWindow.DataBaseEvents.cs:30.13] Connected to Server: ASUS-PC\SQLEXPRESS, Database: Pharmacy
+ERROR  : [BaseTable`1.InsertRecord][BaseTable.cs:180.17] Exception: The INSERT statement conflicted with the FOREIGN KEY constraint "FK_DRUGS_INFO_DEALER_ID". The conflict occurred in database "Pharmacy", table "dbo.DEALERS", column 'ID'., HRESULT: -2146232060
+ERROR  : [BaseTable`1.SelectRecord][BaseTable.cs:153.17] Record with id 0 not found.
+ERROR  : [BaseTable`1.SelectRecord][BaseTable.cs:153.17] Record with id 0 not found.
+INFO   : [DataBaseConnection.CloseConnection][DataBaseConnection.cs:96.13] Connection closed.

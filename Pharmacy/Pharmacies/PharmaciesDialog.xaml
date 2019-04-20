@@ -6,13 +6,19 @@
         xmlns:local="clr-namespace:Pharmacy.Pharmacies"
         xmlns:b_controls="clr-namespace:Pharmacy.Controls"
         mc:Ignorable="d"
-        Title="PharmaciesDialog" Height="146.636" Width="298.815">
+        Title="PharmaciesDialog" Height="332" Width="642.921">
     <Grid>
-        <Button x:Name="ui_btnOK" Content="OK" HorizontalAlignment="Left" Margin="82,73,0,0" VerticalAlignment="Top" Width="75" IsTabStop="False"/>
-        <Button x:Name="ui_btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="184,73,0,0" VerticalAlignment="Top" Width="75" IsTabStop="False"/>
-        <Calendar HorizontalAlignment="Left" Height="0" Margin="210,45,0,0" VerticalAlignment="Top" Width="59"/>
-        <Label Content="* Име:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="7,17,0,0"/>
-        <TextBox x:Name="ui_edbName" HorizontalAlignment="Left" Height="23" Margin="72,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187" IsTabStop="False"/>
-
+        <Button x:Name="ui_btnOK" Content="OK" HorizontalAlignment="Right" Margin="0,0,90,10" VerticalAlignment="Bottom" Width="75" IsTabStop="False"/>
+        <Button x:Name="ui_btnCancel" Content="Cancel" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="75" IsTabStop="False"/>
+        <Label Content="* Име:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="7,10,0,0"/>
+        <TextBox x:Name="ui_edbName" HorizontalAlignment="Left" Height="23" Margin="72,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187" IsTabStop="False"/>
+        <GroupBox Header="Поръчки" Margin="10,54,10,73">
+            <ScrollViewer CanContentScroll="True" UseLayoutRounding="False" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Margin="2,0,-2,0">
+                <Grid Name="ui_gridPharmacyOrders">
+                    <Label x:Name="ui_lblNoDrugs" Content="Няма лекарства" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center"/>
+                </Grid>
+            </ScrollViewer>
+        </GroupBox>
+        <Button x:Name="findDealer" Content="Намери доставчик" HorizontalAlignment="Left" Margin="21,0,0,10" VerticalAlignment="Bottom" Width="118" RenderTransformOrigin="0.227,1.045" Click="findDealer_Click"/>
     </Grid>
 </b_controls:BaseDialog>

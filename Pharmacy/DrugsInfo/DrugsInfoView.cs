@@ -4,6 +4,7 @@ using Pharmacy.Drugs;
 using Pharmacy.Utillities;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -58,6 +59,8 @@ namespace Pharmacy.DrugsInfo
                 return;
             }
 
+            itemsSource.Clear();
+
             foreach (var drug in drugsInfoArray)
             {
                 DrugsItem item = toDrugItem(drug, drugsList);
@@ -104,8 +107,9 @@ namespace Pharmacy.DrugsInfo
             {
                 Header = "Дата на годност",
                 DisplayMemberBinding = new Binding("ExpiryDate"),
-                Width = 120
+                Width = 120,
             });
+           
         }
 
         /// <summary>Метод при натискане на "Преглед" от контекстното меню</summary>
@@ -116,10 +120,10 @@ namespace Pharmacy.DrugsInfo
 
             DrugsInfo drugInfo = toDrugsInfo((DrugsItem)SelectedItem);
             if (!drugsInfoData.SelectWhereID(drugInfo.ID, out drugInfo))
-            {
-                MessageBoxes.ShowError(MessageBoxes.PreviewErrorMessage);
-                return;
-            }
+             {
+                 MessageBoxes.ShowError(MessageBoxes.PreviewErrorMessage);
+                 return;
+             }
 
             DrugsInfoDialog drugsInfoDialog = new DrugsInfoDialog(drugInfo, drugsList, DialogModes.Preview);
             drugsInfoDialog.ShowDialog();
@@ -143,6 +147,8 @@ namespace Pharmacy.DrugsInfo
 
             DrugsInfo drugsInfo = drugsInfoDialog.drugInfo;
             drugsInfo.DealerID = dealerID;
+
+            ///////////
             if (!drugsInfoData.Insert(drugsInfo))
             {
                 MessageBoxes.ShowError(MessageBoxes.AddErrorMessage);
@@ -216,9 +222,15 @@ namespace Pharmacy.DrugsInfo
 
         private DrugsInfo toDrugsInfo(DrugsItem drugsItem)
         {
-            DrugsInfo drugsInfo = new DrugsInfo();
+            if (!drugsData.SelectAll(drugsList))
+            {
+                MessageBoxes.ShowError(MessageBoxes.EditErrorMessage);
+                return new DrugsInfo();
+            }
+
             Drugs.Drugs drug = drugsList.Find(element => element.Name == drugsItem.Name);
 
+            DrugsInfo drugsInfo = new DrugsInfo();
             if (drug != null)
             {
 

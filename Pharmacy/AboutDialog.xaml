@@ -9,7 +9,7 @@
         Title="За приложението" Height="380" Width="490" MinWidth="300" MinHeight="300" WindowStartupLocation="CenterOwner">
     <Grid>
         <Border BorderBrush="#FF4788C7" BorderThickness="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Height="90" Width="93">
-            <Image x:Name="image" Source="Resources/icon.png" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Image x:Name="image" Source="Resources/drugPng.png" HorizontalAlignment="Center" VerticalAlignment="Center" />
         </Border>
         <Label Content="Pharmacy management software" HorizontalAlignment="Left" Margin="108,10,0,0" VerticalAlignment="Top" Background="{x:Null}" Padding="0"/>
         <Label Content="Версия 1.0.0.1 Beta Stable" HorizontalAlignment="Left" Margin="108,26,0,0" VerticalAlignment="Top" Padding="0"/>

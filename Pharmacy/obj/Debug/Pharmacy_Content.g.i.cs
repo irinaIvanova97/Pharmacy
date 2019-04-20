@@ -8,9 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/close_button_hover.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/close_button_normal.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/close_button_pressed.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/license.txt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("drugicon2.ico")]
 
 

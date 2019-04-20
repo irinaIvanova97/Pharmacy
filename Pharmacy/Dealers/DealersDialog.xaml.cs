@@ -1,8 +1,11 @@
 ﻿using Pharmacy.Controls;
 using Pharmacy.DrugsInfo;
 using Pharmacy.Utillities;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 
 namespace Pharmacy.Dealers
 {
@@ -13,6 +16,7 @@ namespace Pharmacy.Dealers
     {
         public DealerInfo dealerInfo { get; set; }
         private DrugsInfoView drugsInfoView;
+        private DrugsInfoData drugsInfoData = new DrugsInfoData();
 
         public DealersDialog(DealerInfo _dealerInfo, DialogModes _dialogMode, DependencyObject parent = null) : base(_dialogMode, parent)
         {
@@ -125,6 +129,74 @@ namespace Pharmacy.Dealers
             }
 
             return true;
+        }
+
+        private void drugExpiryDate_Click(object sender, RoutedEventArgs e)
+        {
+            int numberNotWorthy = 0, numberDiscountedPrice = 0;
+
+            List<DrugsInfo.DrugsInfo> drugsInfoListForSelect = new List<DrugsInfo.DrugsInfo>();
+            if (!drugsInfoData.SelectAll(drugsInfoListForSelect, " WHERE DEALER_ID = " + dealerInfo.dealer.ID))
+            {
+                MessageBoxes.ShowError(MessageBoxes.EditErrorMessage);
+                return;
+            }
+
+            dealerInfo.drugsInfoList = drugsInfoListForSelect;
+
+            List<DrugsInfo.DrugsInfo> drugsInfoList = dealerInfo.ifDrugIsWorthy(out numberNotWorthy, out numberDiscountedPrice);
+
+            string Message = "";
+
+            if (numberNotWorthy != 0)
+                Message += "Открити са " + numberNotWorthy + " негодни лекарства. Те ще бъдат премахнати.\n";
+
+            if (numberDiscountedPrice != 0)
+                Message += "Открити са " + numberDiscountedPrice + " лекарства, годността на които изтича след по - малко от месец. Цената им ще бъде намалена с 50%.";
+
+            MessageBoxes.ShowWarning(Message);
+
+            drugsInfoList.ForEach(delegate (DrugsInfo.DrugsInfo element)
+            {
+                if (element.Number == 0)
+                {
+                    if (!drugsInfoData.DeleteWhereID(element.ID))
+                    {
+                        MessageBoxes.ShowError(MessageBoxes.DeleteErrorMessage);
+                        return;
+                    }
+                }
+                else
+                {
+                    if (!drugsInfoData.UpdateWhereID(element.ID, element))
+                    {
+                        MessageBoxes.ShowError(MessageBoxes.EditErrorMessage);
+                        return;
+                    }
+                }
+            });
+
+            drugsInfoView.Update();
+
+            //ui_btndrugExpiryDate.IsEnabled = false;
+        }
+
+        private void SortByPrice_Click(object sender, RoutedEventArgs e)
+        {
+            Sort("Price");
+        }
+
+        private void SortByNumber_Click(object sender, RoutedEventArgs e)
+        {
+            Sort("Number");
+        }
+
+        private void Sort(string property)
+        {
+            ICollectionView dataView = CollectionViewSource.GetDefaultView(drugsInfoView.ItemsSource);
+            dataView.SortDescriptions.Clear();
+            dataView.SortDescriptions.Add(new SortDescription(property, ListSortDirection.Ascending));
+            dataView.Refresh();
         }
     }
 }

@@ -19,15 +19,26 @@ namespace Pharmacy.PharmacyOrders
         private PharmacyOrdersData pharmacyOrdersData = new PharmacyOrdersData();
         private Pharmacies.PharmaciesData pharmacyData = new Pharmacies.PharmaciesData();
         private List<Pharmacies.Pharmacies> pharmacies = new List<Pharmacies.Pharmacies>();
+        private Pharmacies.Pharmacies pharmacy;
 
         public PharmacyOrdersView()
         {
         }
 
+        public PharmacyOrdersView(Pharmacies.Pharmacies _pharmacy)
+        {
+            pharmacy = _pharmacy;
+        }
+
+        public override object GetSelectedItem()
+        {
+            return SelectedItem;
+        }
+
         protected override void LoadData()
         {
             List<PharmacyOrders> pharmacyOrdersList = new List<PharmacyOrders>();
-            if (!pharmacyOrdersData.SelectAll(pharmacyOrdersList))
+            if (!pharmacyOrdersData.SelectAll(pharmacyOrdersList, " WHERE PHARMACY_ID = " + pharmacy.ID.ToString()))
             {
                 MessageBoxes.ShowError(MessageBoxes.LoadDataErrorMessage);
                 return;
@@ -88,15 +99,14 @@ namespace Pharmacy.PharmacyOrders
                 return;
             }
 
-
-            PharmacyOrdersDialog pharmacyOrderDialog = new PharmacyOrdersDialog(pharmacyOrder, pharmacies, DialogModes.Preview, this);
+            PharmacyOrdersDialog pharmacyOrderDialog = new PharmacyOrdersDialog(pharmacyOrder, pharmacy, DialogModes.Preview, this);
             pharmacyOrderDialog.ShowDialog();
         }
 
         /* Context menu override */
         protected override void OnAddClick(object sender, RoutedEventArgs e)
         {
-            PharmacyOrdersDialog pharmacyOrderDialog = new PharmacyOrdersDialog(new PharmacyOrders(), pharmacies, DialogModes.Add, this);
+            PharmacyOrdersDialog pharmacyOrderDialog = new PharmacyOrdersDialog(new PharmacyOrders(), pharmacy, DialogModes.Add, this);
             bool? dialogResult = pharmacyOrderDialog.ShowDialog();
             if (dialogResult == false)
             {
@@ -126,7 +136,7 @@ namespace Pharmacy.PharmacyOrders
                 return;
             }
 
-            PharmacyOrdersDialog phramacyDialog = new PharmacyOrdersDialog(pharmacyOrders, pharmacies,DialogModes.Edit, this);
+            PharmacyOrdersDialog phramacyDialog = new PharmacyOrdersDialog(pharmacyOrders, pharmacy, DialogModes.Edit, this);
             bool? dialogResult = phramacyDialog.ShowDialog();
             if (dialogResult == false)
             {

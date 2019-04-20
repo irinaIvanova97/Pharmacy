@@ -1,4 +1,0 @@
-INFO   : [App.OnStartup][App.xaml.cs:19.13] **************** Pharmacy 1.0.0.0 Started ****************
-INFO   : [DataBaseConnection.CloseConnection][DataBaseConnection.cs:97.17] Connection closed.
-ERROR  : [<OpenConnection>d__17.MoveNext][DataBaseConnection.cs:65.17] Exception: A task was canceled., HRESULT: -2146233029
-INFO   : [DataBaseConnection.CloseConnection][DataBaseConnection.cs:97.17] Connection closed.

@@ -13,7 +13,7 @@ namespace Pharmacy.PharmacyOrders
 
         public bool SelectAll(List<PharmacyOrders> pharmacyOrdersList, string whereClause = "")
         {
-            return pharmacyOrdersTable.SelectAllRecords(pharmacyOrdersList);
+            return pharmacyOrdersTable.SelectAllRecords(pharmacyOrdersList, whereClause);
         }
 
         public bool SelectWhereID(int ID, out PharmacyOrders pharmacyOrders)

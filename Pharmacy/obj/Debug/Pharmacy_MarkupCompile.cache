@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Workspace\Pharmacy\Pharmacy\App.xaml
-91828349556
+10-438028431
 
-44-858336223
+45-1423047236
 14307177977
-AboutDialog.xaml;Controls\ChooseElementDialog.xaml;Controls\CloseButton.xaml;Dealers\DealersDialog.xaml;DrugsInfo\DrugsInfoDialog.xaml;Drugs\DrugsDialog.xaml;MainWindow.xaml;Pharmacies\PharmaciesDialog.xaml;PharmacyOrders\PharmacyOrdersDialog.xaml;
+AboutDialog.xaml;Controls\ChooseElementDialog.xaml;Controls\CloseButton.xaml;Dealers\DealersDialog.xaml;DrugsInfo\DrugsInfoDialog.xaml;Drugs\DrugsDialog.xaml;MainDialog.xaml;MainWindow.xaml;Pharmacies\PharmaciesDialog.xaml;PharmacyOrders\PharmacyOrdersDialog.xaml;
 
 False
 

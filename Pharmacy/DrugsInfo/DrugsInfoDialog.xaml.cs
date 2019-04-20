@@ -55,6 +55,7 @@ namespace Pharmacy.DrugsInfo
 
                         ui_btnOK.Content = "Добави";
                         ui_btnCancel.Content = "Отказ";
+                        ui_cmbDrugName.SelectedIndex = -1;
                     }
                     break;
                 case DialogModes.Edit:
@@ -82,58 +83,29 @@ namespace Pharmacy.DrugsInfo
             ui_cmbDrugName.ItemsSource = itemsSource;
             ui_cmbDrugName.DisplayMemberPath = "Name";
             ui_cmbDrugName.SelectedValuePath = "ID";
-            ui_cmbDrugName.SelectedIndex = -1;
+            //////////
+            //ui_cmbDrugName.SelectedIndex = -1;
         }
 
         protected override void CopyDataToControls()
         {
-            
             Drugs.Drugs drug = drugsList.Find(element => element.ID == drugInfo.DrugID);
             if (drug != null)
             {
-                //ui_cmbDrugName.SelectedValue = drug.ID == 0 ? -1 : drug.ID;
                 ui_cmbDrugName.Text = drug.Name;
+                //ui_cmbDrugName.SelectedIndex = 1;
+                // ui_cmbDrugName.SelectedValue = drug.ID;
                 ui_edbNumber.Text = drugInfo.Number.ToString();
                 ui_edbPrice.Text = drugInfo.Price.ToString();
                 ui_dpDate.Text = drugInfo.ExpiryDate.ToString();
                 ui_image.Source = drug.image;
+
+                //ui_cmbDrugName.SelectedValue = drug.ID == 0 ? -1 : drug.ID;
             }
-            /*
-               Drugs.Drugs drug = drugsList.Find(element => element.ID == drugInfo.DrugID);
-            ui_cmbDrugName.Text = drug.Name;
-            ui_edbNumber.Text = drugInfo.Number.ToString();
-            ui_edbPrice.Text = drugInfo.Price.ToString();
-            ui_dpDate.Text = drugInfo.ExpiryDate.ToString();
-            ui_image.Source = drug.image;
-             */
         }
-        //////////////////////////////////
+
         protected override void CopyControlsToData()
         {
-            //if (!DialogMode.Equals(DialogModes.Preview))
-            //{
-            //    Drugs.Drugs drug1 = drugsList.Find(element => element.ID == drugInfo.DrugID);
-            //    if (drug1 != null)
-            //    {
-            //        drug1.Name = (string)ui_cmbDrugName.SelectedValue;
-            //        /* drugInfo.Number = int.Parse(ui_edbNumber.Text);
-            //         drugInfo.Price = double.Parse(ui_edbPrice.Text);
-            //         drugInfo.ExpiryDate = DateTime.Parse(ui_dpDate.Text);*/
-            //        drug1.image = ui_image.Source;
-            //        drugInfo.DrugID = drug1.ID;
-            //    }
-            //}
-            //else
-            //{
-            //    Drugs.Drugs drug = drugsList.Find(element => element.Name == ui_cmbDrugName.Text);
-            //    if (drug != null)
-            //        drugInfo.DrugID = drug.ID;
-            //}
-
-            //drugInfo.Number = int.Parse(ui_edbNumber.Text);
-            //drugInfo.Price = double.Parse(ui_edbPrice.Text);
-            //drugInfo.ExpiryDate = DateTime.Parse(ui_dpDate.Text);
-
             if (ui_cmbDrugName.SelectedValue != null)
             {
                 Drugs.Drugs drug = drugsList.Find(element => element.Name == ui_cmbDrugName.Text);
@@ -161,6 +133,14 @@ namespace Pharmacy.DrugsInfo
             if (ui_edbNumber.Text.Equals(""))
             {
                 Message += "\n Моля попълнете задължителното поле: Брой";
+
+                if (!focus)
+                    focus = ui_edbNumber.Focus();
+            }
+
+            if (int.Parse(ui_edbNumber.Text) <= 0)
+            {
+                Message += "\n Моля попълнете положително число за поле: Брой";
 
                 if (!focus)
                     focus = ui_edbNumber.Focus();

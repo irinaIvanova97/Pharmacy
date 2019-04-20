@@ -1,0 +1,4 @@
+INFO   : [App.OnStartup][App.xaml.cs:19.13] **************** Pharmacy 1.0.0.0 Started ****************
+INFO   : [MainWindow.DataBaseConnection_OnConnectingEnd][MainWindow.DataBaseEvents.cs:30.13] Connected to Server: ASUS-PC\SQLEXPRESS, Database: Pharmacy
+ERROR  : [BaseTable`1.SelectRecord][BaseTable.cs:153.17] Record with id 1 not found.
+ERROR  : [BaseTable`1.EditRecord][BaseTable.cs:214.17] Exception: Record not found, HRESULT: -2146233088

@@ -22,6 +22,11 @@ namespace Pharmacy.Pharmacies
         {
         }
 
+        public override object GetSelectedItem()
+        {
+            return SelectedItem;
+        }
+
         protected override void LoadData()
         {
             List<Pharmacies> pharmacyList = new List<Pharmacies>();

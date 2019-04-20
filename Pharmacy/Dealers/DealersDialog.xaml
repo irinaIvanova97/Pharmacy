@@ -6,14 +6,14 @@
         xmlns:local="clr-namespace:Pharmacy.Dealers"
         xmlns:b_controls="clr-namespace:Pharmacy.Controls"
         mc:Ignorable="d"
-        Title="DealersDialog" Height="325" Width="562.921">
+        Title="DealersDialog" Height="334" Width="700" MinWidth="650">
     <Grid>
         <Label Content="* Име:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,7,0,0"/>
         <TextBox x:Name="ui_edbName" HorizontalAlignment="Left" Height="23" Margin="125,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" IsTabStop="False"/>
         <Label Content="* Дистрибутор:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,45,0,0"/>
         <TextBox x:Name="ui_edbDistrubutor" HorizontalAlignment="Left" Height="23" Margin="125,48,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" IsTabStop="False"/>
 
-        <Button x:Name="ui_btnOK" Content="OK" HorizontalAlignment="Right" Margin="0,0,103,25" VerticalAlignment="Bottom" Width="75" IsTabStop="False"/>
+        <Button x:Name="ui_btnOK" Content="OK" HorizontalAlignment="Right" Margin="0,0,90,25" VerticalAlignment="Bottom" Width="75" IsTabStop="False"/>
         <Button x:Name="ui_btnCancel" Content="Cancel" HorizontalAlignment="Right" Margin="0,0,10,25" VerticalAlignment="Bottom" Width="75" IsTabStop="False"/>
         <Label Content="* Телефонен номер:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,6,0,0"/>
         <TextBox x:Name="ui_edbPhoneNumber" HorizontalAlignment="Left" Height="23" Margin="394,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" IsTabStop="False"/>
@@ -24,5 +24,8 @@
                 </Grid>
             </ScrollViewer>
         </GroupBox>
+        <Button x:Name="ui_btndrugExpiryDate" Content="Проверка за срок на годност" Margin="20,0,0,25" VerticalAlignment="Bottom" Width="177" Click="drugExpiryDate_Click" HorizontalAlignment="Left"/>
+        <Button x:Name="ui_btnSortByPrice" Content="Сортиране по цена" HorizontalAlignment="Left" Margin="202,0,0,25" VerticalAlignment="Bottom" Width="126" Click="SortByPrice_Click"/>
+        <Button x:Name="ui_btnSortByNumber" Content="Сортиране по брой" HorizontalAlignment="Left" Margin="333,0,0,25" VerticalAlignment="Bottom" Width="126" Click="SortByNumber_Click" />
     </Grid>
 </b_controls:BaseDialog>

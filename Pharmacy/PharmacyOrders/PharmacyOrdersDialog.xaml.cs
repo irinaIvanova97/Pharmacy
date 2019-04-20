@@ -14,13 +14,14 @@ namespace Pharmacy.PharmacyOrders
     public partial class PharmacyOrdersDialog : BaseDialog
     {
         public PharmacyOrders pharmacyOrders { get; set; }
-        public List<Pharmacies.Pharmacies> pharmaciesList { get; set; }
-        private BaseRecordObservableCollection itemsSource;
+        //public List<Pharmacies.Pharmacies> pharmaciesList { get; set; }
+        Pharmacies.Pharmacies pharmacy;
+        //private BaseRecordObservableCollection itemsSource;
 
-        public PharmacyOrdersDialog(PharmacyOrders _pharmacyOrders, List<Pharmacies.Pharmacies> _pharmaciesList, DialogModes _dialogMode, DependencyObject parent = null) : base(_dialogMode, parent)
+        public PharmacyOrdersDialog(PharmacyOrders _pharmacyOrders, Pharmacies.Pharmacies _pharmacy, DialogModes _dialogMode, DependencyObject parent = null) : base(_dialogMode, parent)
         {
             pharmacyOrders = _pharmacyOrders;
-            pharmaciesList = _pharmaciesList;
+            pharmacy = _pharmacy;
 
             InitializeComponent();
         }
@@ -38,9 +39,6 @@ namespace Pharmacy.PharmacyOrders
         protected override void LoadData()
         {
             base.LoadData();
-
-            itemsSource = new BaseRecordObservableCollection();
-            pharmaciesList.ForEach(element => itemsSource.Add(element));
         }
 
         protected override void OnInitControls()
@@ -69,7 +67,7 @@ namespace Pharmacy.PharmacyOrders
                     {
                         Title = "Преглед на поръчка...";
 
-                        ui_cmbPharmacy.IsEnabled = false;
+
                         ui_edbDrugName.IsReadOnly = true;
                         ui_edbNumber.IsReadOnly = true;
 
@@ -78,35 +76,20 @@ namespace Pharmacy.PharmacyOrders
                     }
                     break;
             }
-
-            ui_cmbPharmacy.ItemsSource = itemsSource;
-            ui_cmbPharmacy.DisplayMemberPath = "Name";
-            ui_cmbPharmacy.SelectedValuePath = "ID";
-            ui_cmbPharmacy.SelectedIndex = -1;
         }
 
         protected override void CopyDataToControls()
         {
-            Pharmacies.Pharmacies pharmacy = pharmaciesList.Find(element => element.ID == pharmacyOrders.PharmacyID);
-
-            if (pharmacy != null)
-            {
-                ui_cmbPharmacy.Text = pharmacy.Name;
-                ui_edbDrugName.Text = pharmacyOrders.DrugName.ToString();
-                ui_edbNumber.Text = pharmacyOrders.NumberOrders.ToString();
-            }
+            ui_edbDrugName.Text = pharmacyOrders.DrugName.ToString();
+            ui_edbNumber.Text = pharmacyOrders.NumberOrders.ToString();
         }
 
         protected override void CopyControlsToData()
         {
-            if (ui_cmbPharmacy.SelectedValue != null)
-            {
-                Pharmacies.Pharmacies pharmacy = pharmaciesList.Find(element => element.Name == ui_cmbPharmacy.Text);
 
-                pharmacyOrders.DrugName = ui_edbDrugName.Text;
-                pharmacyOrders.NumberOrders = int.Parse(ui_edbNumber.Text);
-                pharmacyOrders.PharmacyID = pharmacy.ID;
-            }
+            pharmacyOrders.DrugName = ui_edbDrugName.Text;
+            pharmacyOrders.NumberOrders = int.Parse(ui_edbNumber.Text);
+            pharmacyOrders.PharmacyID = pharmacy.ID;
         }
 
         protected override bool ValidateData()

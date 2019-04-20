@@ -33,11 +33,12 @@ namespace Pharmacy
             AddTab(tab);
         }
 
-        private void OnPharmaciesOrdersMenuItemClicked(object sender, RoutedEventArgs e)
+        /*private void OnPharmaciesOrdersMenuItemClicked(object sender, RoutedEventArgs e)
         {
             var tab = new BaseTabItem("Поръчки");
             tab.SetView(new PharmacyOrdersView());
             AddTab(tab);
-        }
+        }*/
+       
     }
 }

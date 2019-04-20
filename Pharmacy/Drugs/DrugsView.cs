@@ -14,6 +14,7 @@ namespace Pharmacy.Drugs
         // ----------------
         private DrugsData drugsData = new DrugsData();
         private List<Drugs> drugsList = new List<Drugs>();
+        private DrugsInfo.DrugsInfoData drugsInfoData = new DrugsInfo.DrugsInfoData();
         bool outerDrugList = false;
 
         public DrugsView(List<Drugs> _drugsList, bool _outerDrugList)
@@ -147,7 +148,25 @@ namespace Pharmacy.Drugs
             if (result == MessageBoxResult.No)
                 return;
 
+
+            List<DrugsInfo.DrugsInfo> drugsInfoList = new List<DrugsInfo.DrugsInfo>();
             Drugs drug = (Drugs)SelectedItem;
+
+            if (!drugsInfoData.SelectAll(drugsInfoList, " WHERE DRUG_ID = " + drug.ID))
+            {
+                MessageBoxes.ShowError(MessageBoxes.DeleteErrorMessage);
+                return;
+            }
+
+            foreach (DrugsInfo.DrugsInfo drugInfo in drugsInfoList)
+            {
+                if (!drugsInfoData.DeleteWhereID(drugInfo.ID))
+                {
+                    MessageBoxes.ShowError(MessageBoxes.DeleteErrorMessage);
+                    return;
+                }
+            }
+
             if (!drugsData.DeleteWhereID(drug.ID))
             {
                 MessageBoxes.ShowError(MessageBoxes.DeleteErrorMessage);

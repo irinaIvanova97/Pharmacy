@@ -18,8 +18,7 @@ namespace Pharmacy
             InitializeDatabaseInstance();
 
             OnConnectButtonClicked(null, null);
-
-            LoadData();
+            
         }
 
         public void InitializeDatabaseInstance()
@@ -51,16 +50,6 @@ namespace Pharmacy
         {
             AboutDialog about = new AboutDialog(this);
             about.ShowDialog();
-        }
-
-        private void LoadData()
-        {
-            ui_gridPharmacies.Children.Add(new PharmaciesView());
-            PharmaciesView pharmaciesView = new PharmaciesView();
-            //dataGrid.ItemsSource = pharmaciesView.itemsSource;
-            //ui_lvPharmacies = pharmaciesView;
-            //  dataGrid.ItemsSource = pharmaciesView.itemsSource;
-            //ui_gridPharmaciesOrders.Children.Add(new PharmacyOrdersView());
         }
         
     }
