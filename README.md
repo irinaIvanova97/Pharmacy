@@ -2,4 +2,4 @@
 
 Ръководство за потребителя
 
-![image](https://drive.google.com/file/d/1lj_QbH40yrLgZ9nubqGrxuJ-ZPg2Uqob/view?usp=sharing)
+![image](https://drive.google.com/open?id=1lj_QbH40yrLgZ9nubqGrxuJ-ZPg2Uqob)
